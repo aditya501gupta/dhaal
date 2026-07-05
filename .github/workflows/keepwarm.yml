@@ -1,0 +1,21 @@
+name: keep-warm
+# Pings the deployed API every 10 minutes so free-tier hosts never cold-start
+# during the judging window. Set the two repo variables once URLs exist:
+#   Settings -> Secrets and variables -> Actions -> Variables
+#   API_URL      e.g. https://<user>-dhaal.hf.space
+#   FRONTEND_URL e.g. https://dhaal.vercel.app
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API
+        if: vars.API_URL != ''
+        run: curl -fsS --max-time 25 "${{ vars.API_URL }}/health" || echo "api ping failed"
+      - name: Ping frontend
+        if: vars.FRONTEND_URL != ''
+        run: curl -fsS --max-time 25 "${{ vars.FRONTEND_URL }}" -o /dev/null || echo "frontend ping failed"

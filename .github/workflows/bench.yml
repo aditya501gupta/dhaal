@@ -1,0 +1,38 @@
+name: bench
+# Corpus validation + unit tests + benchmark on every push.
+# The hybrid (LLM) benchmark runs only when GROQ_API_KEY / GEMINI_API_KEY
+# secrets are set (repo Settings -> Secrets and variables -> Actions).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install requests
+      - name: Validate corpus schema
+        run: python data/validate.py
+      - name: Unit tests — rules engine
+        run: python backend/tests/test_rules.py
+      - name: Unit tests — fusion layer
+        run: python backend/tests/test_fusion.py
+      - name: Benchmark — rules engine
+        run: python eval/harness.py --engine rules --report eval/report_rules.md
+      - name: Benchmark — hybrid engine (needs API key secrets)
+        if: env.GROQ_API_KEY != '' || env.GEMINI_API_KEY != ''
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python eval/harness.py --engine hybrid --report eval/report_hybrid.md
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-reports
+          path: eval/report_*.md
