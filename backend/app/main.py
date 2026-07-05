@@ -16,6 +16,7 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 from pydantic import BaseModel, Field
 
+from app.engine.forensic import analyze as forensic_analyze
 from app.engine.fusion import analyze_hybrid
 from app.engine.rules import analyze
 
@@ -41,8 +42,14 @@ class AnalyzeRequest(BaseModel):
 
 @app.get("/health")
 def health() -> dict:
-    from app.engine.llm import available
-    return {"status": "ok", "engine": "hybrid-v1", "llm_configured": available()}
+    from app.engine.llm import available as llm_available
+    from app.engine.forensic import available as forensic_available
+    return {
+        "status": "ok",
+        "engine": "hybrid-v2",
+        "llm_configured": llm_available(),
+        "forensic_feeds": forensic_available(),
+    }
 
 
 @app.post("/analyze")
@@ -53,6 +60,18 @@ def analyze_text(req: AnalyzeRequest) -> dict:
         result = analyze_hybrid(req.text)
     result["channel"] = req.channel
     return result
+
+
+class ForensicRequest(BaseModel):
+    text: str = Field(min_length=1, max_length=8000,
+                      description="Message or URL(s) to forensically analyse")
+
+
+@app.post("/forensic")
+def forensic_text(req: ForensicRequest) -> dict:
+    """Run only the Forensic Agent (live URL threat-intel) over the input.
+    Never fetches the URLs — only queries trusted threat databases about them."""
+    return forensic_analyze(req.text)
 
 
 @app.get("/")

@@ -23,6 +23,8 @@ jobs:
         run: python backend/tests/test_rules.py
       - name: Unit tests — fusion layer
         run: python backend/tests/test_fusion.py
+      - name: Unit tests — forensic agent
+        run: python backend/tests/test_forensic.py
       - name: Benchmark — rules engine
         run: python eval/harness.py --engine rules --report eval/report_rules.md
       - name: Benchmark — hybrid engine (needs API key secrets)

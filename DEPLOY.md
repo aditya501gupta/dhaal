@@ -22,8 +22,13 @@ Three free accounts, zero cost. Do these in order. Every step is copy-paste.
 3. Upload these from the repo (Files tab → Add file → Upload):
    `Dockerfile`, the whole `backend/` folder, `frontend/demo.html`, `data/samples.jsonl`.
    (Or connect the Space to the GitHub repo under Settings.)
-4. Wait for build → your API is live at `https://<username>-dhaal-api.hf.space`.
-5. **Smoke test:** open `https://<username>-dhaal-api.hf.space/health` → `{"status":"ok"}`.
+4. **Space secrets** (Settings → Variables and secrets → New secret) — the engine reads these at runtime:
+   `GROQ_API_KEY`, `GEMINI_API_KEY` (LLM layer), and optionally
+   `GOOGLE_SAFE_BROWSING_KEY`, `ABUSECH_AUTH_KEY` (Forensic Agent live feeds).
+   All optional — the engine degrades gracefully without any of them.
+5. Wait for build → your API is live at `https://<username>-dhaal-api.hf.space`.
+6. **Smoke test:** open `https://<username>-dhaal-api.hf.space/health` →
+   `{"status":"ok","llm_configured":true,"forensic_feeds":{...}}`.
 
 ## 3. Frontend on Vercel (5 min)
 
@@ -53,4 +58,6 @@ Actions tab → enable workflows. The `keep-warm` cron now pings every 10 min.
 |---|---|---|
 | GROQ_API_KEY | console.groq.com → API Keys | Day 2 LLM layer |
 | GEMINI_API_KEY | aistudio.google.com → Get API key | Day 2 fallback + Day 6 vision |
+| GOOGLE_SAFE_BROWSING_KEY | console.cloud.google.com → enable Safe Browsing API → Credentials | Day 3 Forensic Agent (optional) |
+| ABUSECH_AUTH_KEY | auth.abuse.ch → free account | Day 3 Forensic Agent / URLhaus (optional) |
 | SUPABASE_URL + ANON_KEY | supabase.com → New project | Day 9 report store |
