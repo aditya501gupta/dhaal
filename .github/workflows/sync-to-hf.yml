@@ -1,81 +1,26 @@
 name: sync-to-hf
-# Auto-deploy the DHAAL backend to a Hugging Face Docker Space on every push to main.
-#
-# One-time setup:
-#   1. Create a Hugging Face WRITE token: https://huggingface.co/settings/tokens
-#   2. Add it as a repo secret named HF_TOKEN
-#      (GitHub repo -> Settings -> Secrets and variables -> Actions -> New repository secret)
-#
-# The Space is CREATED automatically on the first run and updated on every push after.
-# Live URL: https://<your-hf-username>-dhaal-api.hf.space
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
+on: { push: { branches: [main] }, workflow_dispatch: {} }
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install huggingface_hub
-        run: pip install "huggingface_hub>=0.24"
-
-      - name: Add Hugging Face Space frontmatter to README
-        # HF Docker Spaces read build config from README YAML frontmatter.
-        # We prepend it here (only on the CI runner) so the GitHub README stays clean.
-        run: |
-          python - <<'PY'
-          import pathlib
-          header = """---
-          title: DHAAL API
-          emoji: 🛡️
-          colorFrom: indigo
-          colorTo: blue
-          sdk: docker
-          app_port: 7860
-          pinned: false
-          short_description: Real-time AI shield against digital-arrest and UPI scams
-          ---
-
-          """
-          p = pathlib.Path("README.md")
-          body = p.read_text(encoding="utf-8") if p.exists() else ""
-          p.write_text(header + body, encoding="utf-8")
-          print("README frontmatter added")
-          PY
-
-      - name: Create + deploy Space
+      - run: pip install "huggingface_hub>=0.24"
+      - name: Create the Space if it does not exist
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          python - <<'PY'
-          import os
-          from huggingface_hub import HfApi
-          token = os.environ["HF_TOKEN"]
-          if not token:
-              raise SystemExit("HF_TOKEN secret is missing. Add it in repo Settings -> Secrets and variables -> Actions.")
-          api = HfApi(token=token)
-          user = api.whoami()["name"]
-          repo_id = f"{user}/dhaal-api"
-          api.create_repo(repo_id, repo_type="space", space_sdk="docker", exist_ok=True)
-          api.upload_folder(
-              folder_path=".",
-              repo_id=repo_id,
-              repo_type="space",
-              commit_message="Sync from GitHub (auto-deploy)",
-              ignore_patterns=[
-                  ".git*", ".github/*", "**/__pycache__/*", "*.pyc",
-                  "frontend/node_modules/*", "frontend/.next/*",
-                  "*.sqlite", "*.db",
-              ],
-          )
-          host = f"{user}-dhaal-api".lower()
-          print(f"Deployed: https://huggingface.co/spaces/{repo_id}")
-          print(f"Live API: https://{host}.hf.space")
-          PY
+        run: python -c "import os; from huggingface_hub import create_repo; create_repo('Aditya501gupta/dhaal-api', repo_type='space', space_sdk='docker', exist_ok=True, token=os.environ['HF_TOKEN'])"
+      - name: Copy GROQ_API_KEY onto the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python -c "import os; from huggingface_hub import HfApi; k=os.environ.get('GROQ_API_KEY',''); (HfApi(token=os.environ['HF_TOKEN']).add_space_secret('Aditya501gupta/dhaal-api','GROQ_API_KEY',k) if k else print('GROQ_API_KEY not set, skipping'))"
+      - name: Copy GEMINI_API_KEY onto the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -c "import os; from huggingface_hub import HfApi; k=os.environ.get('GEMINI_API_KEY',''); (HfApi(token=os.environ['HF_TOKEN']).add_space_secret('Aditya501gupta/dhaal-api','GEMINI_API_KEY',k) if k else print('GEMINI_API_KEY not set, skipping'))"
+      - name: Upload the backend to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: huggingface-cli upload Aditya501gupta/dhaal-api . . --repo-type=space --exclude=".git*" --exclude="README.md" --exclude="frontend/node_modules/*"
