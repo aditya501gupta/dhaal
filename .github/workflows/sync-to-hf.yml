@@ -10,16 +10,6 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python -c "import os; from huggingface_hub import create_repo; create_repo('Aditya501gupta/dhaal-api', repo_type='space', space_sdk='docker', exist_ok=True, token=os.environ['HF_TOKEN'])"
-      - name: Copy GROQ_API_KEY onto the Space
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python -c "import os; from huggingface_hub import HfApi; k=os.environ.get('GROQ_API_KEY',''); (HfApi(token=os.environ['HF_TOKEN']).add_space_secret('Aditya501gupta/dhaal-api','GROQ_API_KEY',k) if k else print('GROQ_API_KEY not set, skipping'))"
-      - name: Copy GEMINI_API_KEY onto the Space
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python -c "import os; from huggingface_hub import HfApi; k=os.environ.get('GEMINI_API_KEY',''); (HfApi(token=os.environ['HF_TOKEN']).add_space_secret('Aditya501gupta/dhaal-api','GEMINI_API_KEY',k) if k else print('GEMINI_API_KEY not set, skipping'))"
       - name: Upload the backend to the Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
