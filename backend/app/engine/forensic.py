@@ -120,7 +120,10 @@ def extract_urls(text: str) -> list[dict]:
     for m in _CAND_RE.finditer(_refang(text or "")):
         cand = m.group(0).rstrip(".,);:!?'\"")
         has_scheme = bool(re.match(r"^https?://", cand, re.I))
-        parts = urlsplit(cand if has_scheme else "http://" + cand)
+        try:
+            parts = urlsplit(cand if has_scheme else "http://" + cand)
+        except ValueError:
+            continue  # malformed candidate (e.g. bad IPv6 literal) — skip, never crash (G4)
         scheme = (parts.scheme or "http").lower()
         host = (parts.hostname or "").lower().rstrip(".")
         if host.startswith("www."):
@@ -140,7 +143,9 @@ def extract_urls(text: str) -> list[dict]:
             continue
         seen.append(host)
         # PII-stripped: scheme + host + path only — query and fragment are dropped.
-        safe_url = urlunsplit((scheme, host, path or "/", "", ""))
+        # Re-bracket IPv6 literals so the canonical URL stays re-parseable (fixes G4 [::1] crash).
+        netloc = "[" + host + "]" if (is_ip and ":" in host) else host
+        safe_url = urlunsplit((scheme, netloc, path or "/", "", ""))
         out.append({"raw": cand, "scheme": scheme, "host": host,
                     "path": path, "safe_url": safe_url, "userinfo": userinfo})
         if len(out) >= MAX_URLS:

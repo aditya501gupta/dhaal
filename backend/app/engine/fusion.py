@@ -78,7 +78,12 @@ def analyze_hybrid(text: str, llm_fn=None, allow_llm: bool = True, forensic_fn=N
     r["needs_review"] = False
 
     # Forensic pass — offline heuristics always; live feeds only if keys are set.
-    forensic = (forensic_fn or forensic_analyze)(text)
+    try:
+        forensic = (forensic_fn or forensic_analyze)(text)
+    except Exception:
+        # A malformed/hostile URL must never crash a verdict (G4): degrade to no-signal.
+        forensic = {"urls_found": 0, "worst_verdict": "CLEAN", "max_score": 0.0,
+                    "details": [], "feeds_used": [], "error": "forensic degraded"}
     r["forensic"] = forensic
 
     # 0) forensic decisive — an authoritative feed confirmed a malicious link
