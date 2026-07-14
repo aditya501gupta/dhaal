@@ -1,0 +1,194 @@
+[
+ {
+  "id": "syn-s-0404",
+  "type": "impersonation",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0331",
+  "type": "phishing_link",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0415",
+  "type": "impersonation",
+  "lang": "en",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0386",
+  "type": "impersonation",
+  "lang": "en",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0272",
+  "type": "investment_task",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0322",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0328",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0399",
+  "type": "impersonation",
+  "lang": "hinglish",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0310",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0401",
+  "type": "impersonation",
+  "lang": "hinglish",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0393",
+  "type": "impersonation",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0430",
+  "type": "impersonation",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0113",
+  "type": "parcel_courier",
+  "lang": "hinglish",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0389",
+  "type": "impersonation",
+  "lang": "en",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0321",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0194",
+  "type": "utility",
+  "lang": "hinglish",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0303",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0390",
+  "type": "impersonation",
+  "lang": "en",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0291",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0289",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0369",
+  "type": "phishing_link",
+  "lang": "hinglish",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0416",
+  "type": "impersonation",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0311",
+  "type": "upi_request",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ },
+ {
+  "id": "syn-s-0405",
+  "type": "impersonation",
+  "lang": "hi",
+  "verdict": "SUSPICIOUS",
+  "llm": true,
+  "hit": true
+ }
+]
