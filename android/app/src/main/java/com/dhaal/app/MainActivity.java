@@ -140,42 +140,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshShieldLabel() {
-        boolean on = Prefs.isSmsGuardEnabled(this);
-        shieldBtn.setText(on ? "🛡 SMS shield: ON" : "🛡 SMS shield: OFF");
+        boolean on = Prefs.isSmsGuardEnabled(this) || Prefs.isCallGuardEnabled(this);
+        shieldBtn.setText(on ? "🛡 Protection: ON" : "🛡 Protection: OFF");
     }
 
     /** Native, consent-first path to arm/disarm the background SMS shield. */
     private void onShieldTapped() {
-        if (Prefs.isSmsGuardEnabled(this)) {
+        if (Prefs.isSmsGuardEnabled(this) || Prefs.isCallGuardEnabled(this)) {
             Prefs.setSmsGuardEnabled(this, false);
+            Prefs.setCallGuardEnabled(this, false);
             refreshShieldLabel();
-            Toast.makeText(this, "SMS shield off", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Protection off", Toast.LENGTH_SHORT).show();
             return;
         }
         new AlertDialog.Builder(this)
-                .setTitle("Turn on the SMS shield?")
-                .setMessage("DHAAL will scan incoming SMS on this phone and, if it detects a "
-                        + "scam, vibrate and alert you — and automatically send a warning SMS to "
-                        + "your guardian (e.g. your son or daughter) if you've set one. "
-                        + "Message text is checked over HTTPS and never stored. You can turn "
-                        + "this off any time.")
+                .setTitle("Turn on DHAAL protection?")
+                .setMessage("DHAAL will watch for scams on this phone:\n\n"
+                        + "• Scans incoming SMS and warns you on a scam.\n"
+                        + "• When a call starts, offers to listen (on speaker) for scam tactics.\n"
+                        + "• On a scam it vibrates, alerts you, and auto-texts your guardian "
+                        + "(e.g. your son or daughter) if you've set one.\n\n"
+                        + "Nothing is recorded or stored; text is checked over HTTPS. "
+                        + "You can turn this off any time.")
                 .setPositiveButton("Turn on", (d, w) -> requestSmsThenEnable())
                 .setNegativeButton("Not now", null)
                 .show();
     }
 
     private void requestSmsThenEnable() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
-                != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Ask to read incoming SMS AND to auto-text the guardian, in one prompt.
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECEIVE_SMS, Manifest.permission.SEND_SMS}, REQ_SMS);
+        String[] need = {
+                Manifest.permission.RECEIVE_SMS,   // read incoming SMS
+                Manifest.permission.SEND_SMS,      // auto-text the guardian
+                Manifest.permission.READ_PHONE_STATE, // know when a call starts
+                Manifest.permission.RECORD_AUDIO   // listen to a call on speaker
+        };
+        boolean allGranted = true;
+        for (String pm : need) {
+            if (ContextCompat.checkSelfPermission(this, pm) != PackageManager.PERMISSION_GRANTED) {
+                allGranted = false;
+                break;
+            }
+        }
+        if (!allGranted) {
+            ActivityCompat.requestPermissions(this, need, REQ_SMS);
         } else {
             Prefs.setSmsGuardEnabled(this, true);
+            Prefs.setCallGuardEnabled(this, true);
             refreshShieldLabel();
-            Toast.makeText(this, "SMS shield on", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Protection on", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -244,10 +256,16 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] perms, int[] results) {
         super.onRequestPermissionsResult(requestCode, perms, results);
         if (requestCode == REQ_SMS) {
-            boolean granted = results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED;
-            Prefs.setSmsGuardEnabled(this, granted);
+            boolean sms = false, phone = false;
+            for (int i = 0; i < perms.length; i++) {
+                boolean ok = results[i] == PackageManager.PERMISSION_GRANTED;
+                if (Manifest.permission.RECEIVE_SMS.equals(perms[i]) && ok) sms = true;
+                if (Manifest.permission.READ_PHONE_STATE.equals(perms[i]) && ok) phone = true;
+            }
+            Prefs.setSmsGuardEnabled(this, sms);
+            Prefs.setCallGuardEnabled(this, phone);
             refreshShieldLabel();
-            Toast.makeText(this, granted ? "SMS shield on" : "SMS shield stays off",
+            Toast.makeText(this, sms ? "Protection on" : "Protection stays off",
                     Toast.LENGTH_SHORT).show();
         }
     }

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 final class Prefs {
     private static final String FILE = "dhaal_native";
     private static final String K_SMS = "sms_guard";
+    private static final String K_CALL = "call_guard";
     private static final String K_GNAME = "guardian_name";
     private static final String K_GPHONE = "guardian_phone";
 
@@ -22,6 +23,14 @@ final class Prefs {
 
     static void setSmsGuardEnabled(Context c, boolean on) {
         p(c).edit().putBoolean(K_SMS, on).apply();
+    }
+
+    static boolean isCallGuardEnabled(Context c) {
+        return p(c).getBoolean(K_CALL, false); // OFF by default — consent required
+    }
+
+    static void setCallGuardEnabled(Context c, boolean on) {
+        p(c).edit().putBoolean(K_CALL, on).apply();
     }
 
     static void setGuardian(Context c, String name, String phone) {

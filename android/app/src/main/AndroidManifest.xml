@@ -13,6 +13,10 @@
     <!-- OPTIONAL, consent-gated: auto-text the family guardian when a scam is
          detected, so a son/daughter is warned automatically. -->
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- OPTIONAL, consent-gated: know when a call starts so DHAAL can offer to listen. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- OPTIONAL, consent-gated: listen to a call (on speaker) via the microphone. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -42,5 +46,20 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
+        <!-- Detects a call starting; only acts when the user enabled call guard. -->
+        <receiver
+            android:name=".CallReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Native "listen to the call" screen, opened from the call prompt. -->
+        <activity
+            android:name=".CallGuardActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DHAAL" />
     </application>
 </manifest>

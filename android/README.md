@@ -20,6 +20,16 @@ WebView, so there is one source of truth.
   verdict and explanation using Android's own text-to-speech, and it **auto-reads**
   when a scam verdict appears. The voice matches the message's script
   (Hindi / Tamil / Telugu / Bengali / English). Fully native — no web redeploy needed.
+- **Call guard (auto-detect + tap-to-listen):** when a call starts, DHAAL posts a
+  one-tap prompt ("On a call? Let DHAAL listen"). Tapping opens a native listening
+  screen that uses Android's SpeechRecognizer to transcribe the (speakerphone) audio,
+  checks it against the DHAAL engine live, and on a scam raises a red alert + vibrate +
+  auto-texts the guardian.
+  *Honest limit:* Android reserves the mic for the call system during an active call, so
+  on many devices third-party mic capture is blocked mid-call. The detection + prompt +
+  listener are real and work wherever the OS allows mic access (e.g. a scam-call recording
+  played aloud near the phone); truly silent, always-on call recording is **not** possible
+  on modern Android by design, and we don't claim it.
 - **Privacy by design:** SMS scanning does nothing unless the toggle is on;
   message text is sent only to the DHAAL endpoint over HTTPS and never stored on
   the device; cleartext traffic is disabled.

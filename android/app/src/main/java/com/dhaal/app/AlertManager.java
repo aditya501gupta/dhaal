@@ -73,6 +73,29 @@ final class AlertManager {
         }
     }
 
+    /** When a call starts (and call guard is on), invite the user to let DHAAL listen. */
+    static void showCallListenPrompt(Context c) {
+        Intent i = new Intent(c, CallGuardActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT
+                | (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
+        PendingIntent pi = PendingIntent.getActivity(c, 1, i, flags);
+
+        NotificationCompat.Builder b = new NotificationCompat.Builder(c, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_btn_speak_now)
+                .setContentTitle("On a call? Let DHAAL listen")
+                .setContentText("Put the call on speaker and tap to check for scam tactics.")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setContentIntent(pi)
+                .setAutoCancel(true);
+        try {
+            NotificationManagerCompat.from(c).notify(7100, b.build());
+        } catch (SecurityException ignored) {
+            // POST_NOTIFICATIONS not granted
+        }
+    }
+
     static void vibrate(Context c, int ms) {
         Vibrator v = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
         if (v == null || !v.hasVibrator()) return;
