@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.dhaal.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.dhaal.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        // The live citizen web app the WebView loads. Change here to point elsewhere.
+        buildConfigField "String", "WEB_APP_URL", "\"https://dhaal-eta.vercel.app\""
+        // DHAAL analysis API used by the native SMS scanner.
+        buildConfigField "String", "API_URL", "\"https://aditya501gupta-dhaal-api.hf.space/analyze\""
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    buildTypes {
+        debug {
+            // Debug builds are signed with the auto-generated debug keystore,
+            // so the APK installs directly on any phone without extra setup.
+            applicationIdSuffix ""
+        }
+        release {
+            minifyEnabled false
+            // NOTE: a real release needs its own signing config. For the hackathon
+            // we ship the debug APK, which is installable by sideloading.
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+}

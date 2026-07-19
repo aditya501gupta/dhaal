@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DHAAL" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#0B1F3A</item>
+        <item name="colorPrimaryDark">#0B1F3A</item>
+        <item name="android:statusBarColor">#0B1F3A</item>
+    </style>
+</resources>

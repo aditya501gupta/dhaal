@@ -1,0 +1,160 @@
+{
+  "full": {
+    "n": 673,
+    "recall": 0.7894736842105263,
+    "precision": 1.0,
+    "fpr": 0.0,
+    "accuracy": 0.8395245170876672,
+    "latency_p50": 0.45
+  },
+  "holdout": {
+    "n": 103,
+    "recall": 1.0,
+    "precision": 1.0,
+    "fpr": 0.0,
+    "accuracy": 1.0,
+    "latency_p50": 0.46
+  },
+  "full_errors": [
+    [
+      "MISSED SCAM",
+      "syn-s-0308",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 25,000 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0275",
+      "SAFE",
+      1.0,
+      "\u0930\u094b\u091c\u093c 48,500 \u0930\u0941\u092a\u092f\u0947 \u0915\u092e\u093e\u090f\u0902 \u0935\u0940\u0921\u093f\u092f\u094b \u0932\u093e\u0907\u0915 \u0915\u0930\u0915\u0947\u0964 \u092a\u0939\u0932\u093e \u091f\u093e\u0938\u094d\u0915 \u092b\u094d\u0930\u0940! VIP \u091f\u093e\u0938\u094d\u0915 \u0915\u0947 \u0932\u093f\u090f 500 "
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0315",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 15,000 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0387",
+      "SAFE",
+      1.41,
+      "Hi Priya, this is your MD. I'm in a meeting and can't talk. Urgently buy Rs 1,20"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0389",
+      "SAFE",
+      1.41,
+      "Hi Sharma ji, this is your MD. I'm in a meeting and can't talk. Urgently buy Rs "
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0411",
+      "SAFE",
+      1.41,
+      "Hi Sharma ji, this is your MD. I'm in a meeting and can't talk. Urgently buy Rs "
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0272",
+      "SAFE",
+      1.0,
+      "\u0930\u094b\u091c\u093c 9,999 \u0930\u0941\u092a\u092f\u0947 \u0915\u092e\u093e\u090f\u0902 \u0935\u0940\u0921\u093f\u092f\u094b \u0932\u093e\u0907\u0915 \u0915\u0930\u0915\u0947\u0964 \u092a\u0939\u0932\u093e \u091f\u093e\u0938\u094d\u0915 \u092b\u094d\u0930\u0940! VIP \u091f\u093e\u0938\u094d\u0915 \u0915\u0947 \u0932\u093f\u090f 500 \u0930"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0393",
+      "SAFE",
+      1.8,
+      "Priya, \u092f\u0939 \u0924\u0941\u092e\u094d\u0939\u093e\u0930\u0947 \u0938\u0930 \u092c\u094b\u0932 \u0930\u0939\u0947 \u0939\u0948\u0902, \u092e\u0940\u091f\u093f\u0902\u0917 \u092e\u0947\u0902 \u0939\u0942\u0902\u0964 \u091c\u0932\u094d\u0926\u0940 \u0938\u0947 2,340 \u0930\u0941\u092a\u092f\u0947 \u0915\u0947 \u0917\u093f\u092b\u094d\u091f"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0390",
+      "SAFE",
+      1.41,
+      "Hi madam, this is your MD. I'm in a meeting and can't talk. Urgently buy Rs 4,50"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0322",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 2,340 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909\u0938"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0227",
+      "SAFE",
+      1.0,
+      "\u0930\u094b\u091c\u093c 25,000 \u0930\u0941\u092a\u092f\u0947 \u0915\u092e\u093e\u090f\u0902 \u0935\u0940\u0921\u093f\u092f\u094b \u0932\u093e\u0907\u0915 \u0915\u0930\u0915\u0947\u0964 \u092a\u0939\u0932\u093e \u091f\u093e\u0938\u094d\u0915 \u092b\u094d\u0930\u0940! VIP \u091f\u093e\u0938\u094d\u0915 \u0915\u0947 \u0932\u093f\u090f 500 "
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0321",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 15,000 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0399",
+      "SAFE",
+      1.41,
+      "Sharma ji, mera naya number hai, purana kho gaya. Urgent Rs 48,500 chahiye, veri"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0127",
+      "SAFE",
+      1.6,
+      "Aapka parcel customs me atka hai. Rs 15,000 duty taskadmin@okicici par 2 ghante "
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0280",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 9,999 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909\u0938"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0277",
+      "SAFE",
+      0.0,
+      "\u0938\u0930 \u092e\u0948\u0902\u0928\u0947 \u0917\u0932\u0924\u0940 \u0938\u0947 \u0906\u092a\u0915\u0947 UPI \u092a\u0930 15,000 \u0930\u0941\u092a\u092f\u0947 \u092d\u0947\u091c \u0926\u093f\u090f\u0964 \u091c\u094b \u0915\u0932\u0947\u0915\u094d\u091f \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0947\u091c\u0940 \u0939\u0948 \u0909"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0424",
+      "SAFE",
+      1.41,
+      "Priya, mera naya number hai, purana kho gaya. Urgent Rs 2,340 chahiye, verifyrbi"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0359",
+      "SAFE",
+      1.81,
+      "Aapke HDFC reward points Rs 1,20,000 aaj expire ho rahe hain. pmkvy-registration"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0391",
+      "SAFE",
+      1.41,
+      "Priya, mera naya number hai, purana kho gaya. Urgent Rs 25,000 chahiye, verifyrb"
+    ],
+    [
+      "MISSED SCAM",
+      "syn-s-0331",
+      "SAFE",
+      2.2,
+      "\u092c\u0927\u093e\u0908 \u0939\u094b! \u0906\u092a\u0915\u094b 15,000 \u0930\u0941\u092a\u092f\u0947 \u092e\u093e\u0938\u093f\u0915 \u0938\u0930\u0915\u093e\u0930\u0940 \u0938\u094d\u091f\u093e\u0907\u092a\u0947\u0902\u0921 \u0915\u0947 \u0932\u093f\u090f \u091a\u0941\u0928\u093e \u0917\u092f\u093e \u0939\u0948\u0964 12 \u0918\u0902\u091f\u0947 \u092e\u0947"
+    ]
+  ]
+}
