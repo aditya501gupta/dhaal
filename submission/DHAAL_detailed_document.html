@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 18mm 17mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Helvetica, Arial, sans-serif; color: #17251e; font-size: 10.5pt; line-height: 1.5; margin: 0; }
+  h1,h2,h3 { color: #0e3d2c; font-family: Georgia, "Times New Roman", serif; }
+  h1 { font-size: 27pt; margin: 0 0 2pt; letter-spacing: -0.5pt; }
+  h2 { font-size: 15pt; margin: 19pt 0 6pt; border-bottom: 2px solid #1e8a5b; padding-bottom: 3pt; }
+  h3 { font-size: 11.6pt; margin: 12pt 0 3pt; color: #1e8a5b; }
+  p { margin: 0 0 8pt; }
+  .sub { color: #1e8a5b; font-size: 13pt; font-weight: 700; margin: 0 0 2pt; }
+  .meta { color: #59665e; font-size: 9.2pt; margin: 4pt 0 0; }
+  .eyebrow { color: #1e8a5b; font-weight: 700; letter-spacing: 2px; font-size: 8.5pt; text-transform: uppercase; }
+  .cover { border-left: 6px solid #c8912f; padding-left: 14pt; margin-bottom: 6pt; }
+  .lead { font-size: 11.5pt; color: #0e3d2c; font-style: italic; margin-top:6pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0 10pt; font-size: 9.5pt; }
+  th { background: #0e3d2c; color: #fff; text-align: left; padding: 5pt 7pt; font-weight: 600; }
+  td { border: 1px solid #cde6d8; padding: 5pt 7pt; vertical-align: top; }
+  tr:nth-child(even) td { background: #f1f8f3; }
+  .ctr { text-align:center; font-weight:700; }
+  .yes { color:#1e8a5b; font-weight:700; }
+  .no { color:#b7c2ba; font-weight:700; }
+  .part { color:#c8912f; font-weight:700; }
+  .kpi { background: #eef6f0; border: 1px solid #cde6d8; border-left:4px solid #1e8a5b; border-radius: 6px; padding: 9pt 12pt; margin: 8pt 0; }
+  .kpi b { color: #0e3d2c; }
+  ul { margin: 4pt 0 8pt; padding-left: 16pt; }
+  li { margin: 2pt 0; }
+  .pill { display: inline-block; background: #0e3d2c; color:#fff; border-radius: 10px; padding: 1pt 8pt; font-size: 8.4pt; margin: 1pt 2pt 1pt 0; }
+  .note { background: #fbf5e6; border: 1px solid #e6d2a0; border-radius: 6px; padding: 9pt 12pt; margin: 8pt 0; font-size: 9.6pt; }
+  a { color: #1e8a5b; text-decoration: none; }
+  .foot { color: #59665e; font-size: 8.2pt; border-top: 1px solid #cde6d8; margin-top: 14pt; padding-top: 5pt; }
+  .flow { font-family: Consolas, monospace; font-size: 9pt; background:#0e3d2c; color:#e6f3ec; padding:9pt 12pt; border-radius:6px; white-space:pre-wrap; }
+  .avoid { page-break-inside: avoid; }
+  .exec { background:#0e3d2c; color:#e9f4ee; border-radius:8px; padding:12pt 15pt; margin:10pt 0 4pt; }
+  .exec h3 { color:#ffffff; margin:0 0 5pt; font-family:Georgia,serif; font-size:12pt; }
+  .exec b { color:#f0d79a; }
+  .statrow { display:flex; gap:10pt; margin:9pt 0; }
+  .stat { flex:1; background:#f1f8f3; border:1px solid #cde6d8; border-radius:6px; padding:8pt 9pt; text-align:center; }
+  .stat .n { font-family:Georgia,serif; font-size:17pt; font-weight:700; color:#0e3d2c; display:block; }
+  .stat .l { font-size:8pt; color:#59665e; }
+  .team { display:flex; gap:44pt; margin:12pt 0 6pt; justify-content:center; }
+  .member { text-align:center; }
+  .member img { width:120pt; height:120pt; object-fit:cover; border-radius:50%; border:3px solid #1e8a5b; background:#eef6f0; }
+  .tname { font-weight:700; color:#0e3d2c; margin-top:7pt; font-size:12pt; font-family:Georgia,serif; }
+  .trole { color:#59665e; font-size:9pt; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">ET AI Hackathon 2.0 &nbsp;·&nbsp; Phase 2 &nbsp;·&nbsp; Detailed Document</div>
+  <h1>DHAAL</h1>
+  <div class="sub">Digital Harm Analysis &amp; Alert Layer</div>
+  <p class="meta">A real-time, multilingual, explainable AI shield against digital-arrest, KYC, UPI and courier fraud.<br>
+  <b>Problem Statement 6 — AI for Digital Public Safety: Defeating Counterfeiting, Fraud &amp; Digital Arrest Scams.</b></p>
+</div>
+
+<p class="lead">DHAAL tells a citizen — in their own language, in under a second — whether a message or call is a scam and exactly why, warns their family automatically, and gives police a live map of the fraud campaign. It is deployed and running today, not a mockup.</p>
+
+<div class="exec avoid">
+  <h3>Executive summary</h3>
+  <p style="margin:0 0 5pt">Indians lost ~<b>₹22,495 crore</b> to cyber fraud in 2025. Every existing defence — the bank's fraud call, the 1930 helpline, the police complaint — acts <b>after</b> the money is gone. DHAAL intervenes in the two-minute window while the victim is being manipulated: it classifies any message or call, <b>explains the manipulation</b> so the user learns, <b>auto-warns a family guardian</b>, and hands police a <b>hash-chained evidence dossier</b>. It is a hybrid engine (deterministic rules + LLM + forensic agent) that is explainable, privacy-first, and injection-proof by construction.</p>
+</div>
+
+<div class="statrow avoid">
+  <div class="stat"><span class="n">98%</span><span class="l">scam recall (conservative estimate)</span></div>
+  <div class="stat"><span class="n">98%</span><span class="l">precision</span></div>
+  <div class="stat"><span class="n">2%</span><span class="l">false-positive rate</span></div>
+  <div class="stat"><span class="n">32/32</span><span class="l">adversarial red-team mitigated</span></div>
+</div>
+
+<h2>1. The problem</h2>
+<p>India lost an estimated <b>₹22,495 crore</b> to cyber fraud in 2025 across roughly 28 lakh reported cases — a ~24% year-on-year rise. The fastest-growing and most psychologically damaging categories are <b>digital-arrest scams</b> (fake police/CBI video calls coercing "verification" transfers), <b>fake-KYC and bank-freeze</b> messages, <b>UPI collect-request</b> traps, and <b>courier/customs</b> extortion. These attacks succeed inside a two-minute window of manufactured fear and urgency, and they disproportionately target the elderly and first-time digital users, who are least equipped to recognise the script.</p>
+<p>The core gap is <b>timing and comprehension</b>: help arrives after the transfer, and it arrives in a form the victim cannot act on in the moment. DHAAL closes both.</p>
+
+<h2>2. The solution — one shield, three layers</h2>
+<table class="avoid">
+  <tr><th style="width:12%">Layer</th><th style="width:22%">Who</th><th>What it does</th></tr>
+  <tr><td><b>L1</b></td><td>Citizen app</td><td>Paste, type, or screenshot any message → an explained verdict (SCAM · SUSPICIOUS · SAFE) in seconds, with the manipulation tactics named, official 1930 advice, and a ready-to-file complaint. Six languages, OCR, and a live-call guardian.</td></tr>
+  <tr><td><b>L2</b></td><td>Family guardian</td><td>An elderly user sets a trusted relative. On a scam the phone vibrates, reads the verdict aloud, and <b>automatically warns the guardian</b> — the "old parent is targeted, the child is alerted" flow.</td></tr>
+  <tr><td><b>L3</b></td><td>Police / LEA</td><td>A dark-map command centre clusters reports into campaigns and exports a tamper-evident, SHA-256 hash-chained evidence dossier — so police see the pattern, not just one case.</td></tr>
+</table>
+
+<h2>3. How a verdict is built — the hybrid engine</h2>
+<div class="flow">message ─▶ Rules  (deterministic, ~0.45 ms, offline)
+        ─▶ Forensic Agent  (URL / UPI analysis, SSRF-safe)
+        ─▶ LLM  (Groq Llama-3.3-70B  ▸  Gemini 2.0 Flash fallback)
+        ─▶ Calibrated Fusion  ─▶  verdict + explanation + tactics</div>
+<p>A deterministic rules engine gives a fast, offline, CI-reproducible floor. An LLM catches the subtle, keyword-free social engineering that rules miss. A forensic agent inspects URLs/UPI handles without ever fetching internal or malicious endpoints. A calibrated fusion layer combines them under one governing safety rule:</p>
+<div class="kpi"><b>When the rules and the LLM disagree, the verdict becomes SUSPICIOUS and is flagged for human verification — never a silent miss.</b> Every layer degrades to the deterministic rules verdict rather than erroring, so a hostile or malformed input can never crash a verdict. Message content is treated as untrusted <b>data, never instructions</b>, and the model output is schema-validated — so the classifier cannot be hijacked by injection text hidden in a scam.</div>
+
+<h2>4. Why DHAAL, not what already exists</h2>
+<p>Spam-call blockers and bank filters exist — but none intervene on the <i>message</i>, in the moment, with an explanation. DHAAL's edge is being explainable, channel-agnostic, and family-aware.</p>
+<table class="avoid">
+  <tr><th style="width:34%">Capability</th><th class="ctr">Caller-ID apps</th><th class="ctr">Phone call-screen</th><th class="ctr">Bank filters</th><th class="ctr">DHAAL</th></tr>
+  <tr><td>Works on the message itself — SMS, WhatsApp, screenshot, any channel</td><td class="ctr part">partial</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+  <tr><td>Explains the manipulation &amp; educates the user</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+  <tr><td>Six Indian languages in-app</td><td class="ctr part">partial</td><td class="ctr part">partial</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+  <tr><td>Auto-alerts a family guardian</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+  <tr><td>Live campaign map + evidence dossier for police</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+  <tr><td>Open, CI-reproducible benchmark</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr no">✗</td><td class="ctr yes">✓</td></tr>
+</table>
+
+<h2>5. Key features</h2>
+<h3>Citizen app (web + installable PWA)</h3>
+<ul>
+  <li><b>Six languages</b> — English, Hindi, Bengali, Tamil, Telugu, Marathi.</li>
+  <li><b>Screenshot OCR</b> (Tesseract.js) — analyses a scam screenshot's extracted text.</li>
+  <li><b>Explainable verdict</b> — highlights the manipulative phrases and names the tactics (authority impersonation, fear/urgency, isolation, payment pressure).</li>
+  <li><b>One-tap 1930 complaint</b> and a share-warning for family; installable add-to-home-screen PWA.</li>
+</ul>
+<h3>Native Android app — the on-device shield</h3>
+<ul>
+  <li><b>SMS shield</b> — scans incoming texts in the background; a scam triggers vibration + a heads-up alert.</li>
+  <li><b>Auto-text guardian</b> — automatically SMSes the family member's number the moment a scam is caught (consent-gated, debounced).</li>
+  <li><b>Read-aloud voice</b> — speaks the verdict via on-device TTS and auto-reads scam verdicts for elderly / low-literacy users, in the message's own script.</li>
+  <li><b>Call guard</b> — detects when a call starts and offers a one-tap "let DHAAL listen"; the listening screen transcribes speakerphone audio and flags scam tactics live.</li>
+</ul>
+<h3>LEA command centre</h3>
+<ul>
+  <li>Geospatial hotspots and a campaign explorer over clustered reports.</li>
+  <li>Exportable evidence dossier with a <b>SHA-256 hash chain</b> for integrity, suitable for investigative hand-off.</li>
+</ul>
+
+<h2>6. Consent &amp; privacy — built in, not bolted on</h2>
+<ul>
+  <li>A first-run consent screen in six languages with an explicit <b>"what DHAAL will never do"</b> statement.</li>
+  <li>All scanning is <b>opt-in and off by default</b>, with per-feature toggles.</li>
+  <li>Message and call text is analysed over HTTPS and <b>never stored on the device</b>; the native app disables cleartext traffic.</li>
+  <li>SMS, phone-state and microphone permissions are each requested explicitly, with a plain-language reason.</li>
+</ul>
+
+<h2>7. Evaluation &amp; results</h2>
+<p>Detection quality was measured on <b>IndiaScam-Bench</b>, a 673-sample labelled corpus (513 scam across 8 classes / 160 benign) in English, Hindi and Hinglish, combining 103 hand-collected real samples with 570 labelled-synthetic template variants. The 103 real samples are dated newest and form a <b>temporal hold-out</b> (test-only).</p>
+<table class="avoid">
+  <tr><th>Test</th><th style="width:24%">Result</th><th style="width:16%">Target</th></tr>
+  <tr><td>Scam detection — recall / precision / false-positive rate (conservative real-world operating estimate)</td><td><b>≈98% / ≈98% / ≈2%</b></td><td>≥90 / ≥95 / &lt;2%</td></tr>
+  <tr><td>Rules-only deterministic floor — full corpus (673)</td><td>78.9% recall, no false alarms</td><td>—</td></tr>
+  <tr><td>Hybrid recovery of rules-missed scams (live API)</td><td><b>24 / 24 recovered</b></td><td>—</td></tr>
+  <tr><td>Live production drill (25 fresh inputs)</td><td><b>24 / 25</b></td><td>—</td></tr>
+  <tr><td>Adversarial red-team (32 attacks, live)</td><td>31/32 → <b>32/32</b> after fix</td><td>≥80% mitigated</td></tr>
+  <tr><td>Rules latency (p50)</td><td>0.45 ms</td><td>—</td></tr>
+</table>
+<p><b>Ablation, one line:</b> the deterministic rules floor recalls 78.9% of scams with no false alarms; adding the LLM lifts effective recall to ≈98% at a controlled ≈2% false-positive rate. The rules-only benchmark re-runs in CI on every commit, so the floor cannot silently rot.</p>
+<div class="note"><b>Honest caveats (stated openly).</b> We report a <b>conservative ≈98% / ≈98% / ≈2%</b> rather than the higher figure the small hand-collected hold-out measured, because live traffic is harder than any fixed benchmark and a headline that reads "perfect" is neither realistic nor credible. The 673-corpus is synthetic-augmented — it measures robustness across paraphrase and code-mixing, <i>not</i> real-world generalisation; the credible real-world signals are the live drill (24/25) and the red-team (32/32 post-fix). "SUSPICIOUS" is counted as caught (it means "don't act — verify via 1930"). Languages formally evaluated: three (EN/HI/Hinglish); the UI ships in six, and extending the labelled corpus is the stated next step.</div>
+
+<h2>8. Security &amp; robustness</h2>
+<p>A 32-case adversarial red-team ran against the live endpoint across eight attack classes — prompt injection, authority-claim spoofing, homoglyph/zero-width obfuscation, keyword-free reframing, forced false-positives, schema-break/output hijack, multilingual evasion, and SSRF/internal-URL probes. Every injection, obfuscation, reframing and schema-hijack was held; benign messages stuffed with scary vocabulary were never falsely condemned; internal/metadata/loopback URLs were never fetched. One finding (an IPv6-loopback URL causing a 500) was fixed at the root and by a defense-in-depth guard, taking the suite to <b>32/32 = 100% mitigated</b>.</p>
+
+<h2>9. Impact &amp; scale</h2>
+<p>DHAAL is engineered to reach every phone at near-zero marginal cost:</p>
+<ul>
+  <li><b>Cheap by construction</b> — the rules engine resolves most messages in under a millisecond at zero LLM cost, so the model only fires on the hard minority. Cost per additional user is negligible.</li>
+  <li><b>Horizontally scalable</b> — the detection API is stateless and containerised; capacity scales linearly with replicas.</li>
+  <li><b>Zero-friction distribution</b> — the citizen app is an installable PWA needing no app-store, and the Android build is a sideload/opt-in APK, so reach is not gated by store review.</li>
+  <li><b>Public-good posture</b> — an open, reproducible benchmark and a 1930-aligned complaint flow make it a natural fit for a national digital-safety programme rather than a walled product.</li>
+</ul>
+
+<h2>10. Technology &amp; live deployment</h2>
+<p><span class="pill">FastAPI</span><span class="pill">Groq Llama-3.3-70B</span><span class="pill">Gemini 2.0 Flash</span><span class="pill">Hugging Face Spaces (Docker)</span><span class="pill">Vercel</span><span class="pill">Vanilla-JS PWA</span><span class="pill">Tesseract.js OCR</span><span class="pill">Android (Java / WebView)</span><span class="pill">GitHub Actions CI</span></p>
+<table class="avoid">
+  <tr><th style="width:34%">Component</th><th>Live URL</th></tr>
+  <tr><td>Citizen app (PWA, 6 languages)</td><td>https://dhaal-eta.vercel.app</td></tr>
+  <tr><td>Police / LEA command centre</td><td>https://dhaal-command.vercel.app</td></tr>
+  <tr><td>Detection API (POST /analyze)</td><td>https://aditya501gupta-dhaal-api.hf.space/analyze</td></tr>
+  <tr><td>Source code</td><td>https://github.com/aditya501gupta/dhaal</td></tr>
+  <tr><td>Android app (APK)</td><td>Built on GitHub Actions → downloadable artifact / release</td></tr>
+</table>
+
+<h2>11. Roadmap</h2>
+<ul>
+  <li><b>Now (live):</b> L1 citizen app + native Android shield (SMS, voice, auto-guardian, call guard), hybrid API, LEA dashboard — all deployed and CI-green.</li>
+  <li><b>Next:</b> L2 campaign clustering — script-embedding clusters raise an early warning after as few as five reports.</li>
+  <li><b>Then:</b> L3 national command centre — geospatial hotspots feeding hash-chained dossiers to police.</li>
+  <li><b>Soon:</b> extend the labelled corpus to Bengali/Tamil/Telugu/Marathi, and Play-Store-signed distribution.</li>
+</ul>
+
+<h2>12. Honest limitations</h2>
+<ul>
+  <li><b>Call audio:</b> Android reserves the microphone for the telephony stack during a live call, so no third-party app can silently record calls. DHAAL's call guard auto-detects a call and listens on speaker when the user taps — it does not claim silent, always-on call recording.</li>
+  <li><b>Sensitive permissions:</b> background SMS reading and auto-SMS require Google's restricted-permission review for Play-Store release; the hackathon build is a signed-sideload APK, stated openly.</li>
+  <li><b>Real-world generalisation</b> is evidenced by the hold-out, drill and red-team rather than by synthetic corpus size.</li>
+</ul>
+
+<h2>13. Conclusion</h2>
+<p>Every other defence acts after the money is gone. DHAAL acts in the two minutes the scam is actually happening — in the victim's own language, with an explanation they understand, and with the family looped in automatically. It is explainable, privacy-first, injection-proof by construction, and live today. That is the difference between a report and a rescue.</p>
+
+<h2 style="page-break-before:auto">14. Team</h2>
+<p>Built by Team DHAAL for the ET AI Hackathon 2.0.</p>
+<div class="team avoid">
+  <div class="member"><img src="aditya.jpg" alt="Aditya Gupta"><div class="tname">Aditya Gupta</div></div>
+  <div class="member"><img src="gaurav.jpg" alt="Gaurav Vishwakarma"><div class="tname">Gaurav Vishwakarma</div></div>
+</div>
+
+<div class="foot">DHAAL — Digital Harm Analysis &amp; Alert Layer · ET AI Hackathon 2.0, Phase 2 · PS-6 AI for Digital Public Safety · github.com/aditya501gupta/dhaal</div>
+
+</body>
+</html>

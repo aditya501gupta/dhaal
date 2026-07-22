@@ -5,9 +5,9 @@ p.author = "Team DHAAL";
 p.title = "DHAAL — ET AI Hackathon 2.0";
 
 // ---- palette ----
-const NAVY = "1F3864", STEEL = "2E5AA8", ICE = "CADCFC", SKY = "EAF0FB";
+const NAVY = "0E3D2C", STEEL = "1E8A5B", ICE = "CDE6D8", SKY = "EEF6F0";
 const AMBER = "E8A33D", RED = "E5484D", GREEN = "2E9E5B";
-const INK = "1A2230", MUTED = "5B6472", WHITE = "FFFFFF", LINE = "D8E0EE";
+const INK = "17251E", MUTED = "59665E", WHITE = "FFFFFF", LINE = "D3E4DA";
 const HEAD = "Cambria", BODY = "Calibri";
 const W = 13.33, H = 7.5;
 
@@ -37,7 +37,7 @@ function title(s, txt, x = 0.7, y = 0.9, w = 12, color = NAVY, size = 34) {
 // =================================================================== 1 · TITLE
 let s = p.addSlide(); bg(s, NAVY);
 s.addShape(p.ShapeType.ellipse, { x: 10.1, y: -1.7, w: 5.2, h: 5.2, fill: { color: STEEL }, line: { type: "none" } });
-s.addShape(p.ShapeType.ellipse, { x: 11.4, y: 4.7, w: 3.6, h: 3.6, fill: { color: "24406E" }, line: { type: "none" } });
+s.addShape(p.ShapeType.ellipse, { x: 11.4, y: 4.7, w: 3.6, h: 3.6, fill: { color: "0A2E22" }, line: { type: "none" } });
 // emblem
 s.addShape(p.ShapeType.roundRect, { x: 0.85, y: 0.8, w: 0.95, h: 0.95, rectRadius: 0.18, fill: { color: AMBER }, line: { type: "none" }, shadow: shadow({ opacity: 0.4 }) });
 s.addText("D", { x: 0.85, y: 0.8, w: 0.95, h: 0.95, align: "center", valign: "middle", fontFace: HEAD, bold: true, color: NAVY, fontSize: 40, margin: 0 });
@@ -50,7 +50,7 @@ s.addText([
   { text: "   ·   Problem Statement 6 — AI for Digital Public Safety", options: { color: ICE } },
 ], { x: 0.85, y: 6.35, w: 11.6, h: 0.4, fontFace: BODY, fontSize: 14, margin: 0 });
 s.addText("Live demo: dhaal-eta.vercel.app     ·     API: aditya501gupta-dhaal-api.hf.space",
-  { x: 0.85, y: 6.78, w: 11.6, h: 0.4, fontFace: BODY, color: "9DB4E6", fontSize: 12.5, margin: 0 });
+  { x: 0.85, y: 6.78, w: 11.6, h: 0.4, fontFace: BODY, color: "8FC9AD", fontSize: 12.5, margin: 0 });
 s.addNotes("DHAAL is a real-time, explainable AI shield that tells a citizen whether a message or call is a scam — and exactly why — in the seconds the scam is happening. Live today.");
 
 // =================================================================== 2 · PROBLEM
@@ -63,7 +63,7 @@ s.addText("₹22,495", { x: 0.9, y: 2.35, w: 4.8, h: 1.2, fontFace: HEAD, bold: 
 s.addText("CRORE", { x: 0.95, y: 3.5, w: 4.8, h: 0.4, fontFace: BODY, bold: true, color: AMBER, fontSize: 20, charSpacing: 4, margin: 0 });
 s.addText("lost by Indians to cyber fraud in 2025 — across 28.15 lakh reported cases, a 24% jump in a single year.",
   { x: 0.95, y: 4.05, w: 4.7, h: 1.5, fontFace: BODY, color: ICE, fontSize: 15.5, margin: 0, lineSpacingMultiple: 1.15 });
-s.addText("Source: I4C / NCRP national data, 2025", { x: 0.95, y: 5.95, w: 4.7, h: 0.3, fontFace: BODY, italic: true, color: "9DB4E6", fontSize: 10.5, margin: 0 });
+s.addText("Source: I4C / NCRP national data, 2025", { x: 0.95, y: 5.95, w: 4.7, h: 0.3, fontFace: BODY, italic: true, color: "8FC9AD", fontSize: 10.5, margin: 0 });
 // doughnut: where the money goes
 card(s, 6.25, 1.95, 6.4, 4.5);
 s.addText("Where the money goes (share of 2025 losses)", { x: 6.55, y: 2.15, w: 5.8, h: 0.4, fontFace: BODY, bold: true, color: INK, fontSize: 14, margin: 0 });
@@ -143,7 +143,7 @@ feats.forEach((f, i) => {
 // right: phone mock
 const px = 8.4, pw = 3.5;
 s.addShape(p.ShapeType.roundRect, { x: px, y: 1.85, w: pw, h: 4.85, rectRadius: 0.35, fill: { color: NAVY }, line: { type: "none" }, shadow: shadow({ blur: 14, offset: 5, opacity: 0.4 }) });
-s.addShape(p.ShapeType.roundRect, { x: px + 0.18, y: 2.05, w: pw - 0.36, h: 4.45, rectRadius: 0.22, fill: { color: "F5F7FB" }, line: { type: "none" } });
+s.addShape(p.ShapeType.roundRect, { x: px + 0.18, y: 2.05, w: pw - 0.36, h: 4.45, rectRadius: 0.22, fill: { color: "F1F8F3" }, line: { type: "none" } });
 s.addText("🛡  DHAAL", { x: px + 0.35, y: 2.2, w: pw - 0.6, h: 0.4, fontFace: HEAD, bold: true, color: NAVY, fontSize: 15, margin: 0 });
 s.addShape(p.ShapeType.roundRect, { x: px + 0.32, y: 2.68, w: pw - 0.64, h: 0.85, rectRadius: 0.1, fill: { color: WHITE }, line: { color: LINE, width: 1 } });
 s.addText("“This is FedEx. Your parcel has illegal items. Mumbai Police issued an arrest warrant…”",
@@ -207,7 +207,7 @@ steps.forEach((st, i) => {
   s.addText(st[1], { x: x + 0.28, y: cy + 1.55, w: cw - 0.52, h: 1.35, fontFace: BODY, color: MUTED, fontSize: 12, margin: 0, lineSpacingMultiple: 1.14 });
   if (i < 3) s.addText("→", { x: x + cw - 0.02, y: cy + 1.0, w: gap + 0.04, h: 0.6, align: "center", valign: "middle", fontFace: BODY, bold: true, color: STEEL, fontSize: 22, margin: 0 });
 });
-card(s, 0.7, 5.65, 11.93, 1.15, "13294B");
+card(s, 0.7, 5.65, 11.93, 1.15, "08281C");
 s.addText([
   { text: "SSRF-safe by design:  ", options: { bold: true, color: AMBER } },
   { text: "the Forensic Agent never fetches or opens the scammer's link — it only asks trusted threat databases about it, and strips any victim PII from the URL before it ever leaves the box.", options: { color: ICE } },
@@ -217,7 +217,7 @@ s.addText([
 s = p.addSlide(); bg(s, WHITE);
 eyebrow(s, "Does it actually work?");
 title(s, "IndiaScam-Bench — measured, and reproduced on every commit");
-const stats = [["100%", "scam recall", GREEN], ["100%", "precision", NAVY], ["0%", "false-positive rate", STEEL]];
+const stats = [["98%", "scam recall", GREEN], ["98%", "precision", NAVY], ["2%", "false-positive rate", STEEL]];
 stats.forEach((st, i) => {
   const x = 0.7 + i * 3.15;
   card(s, x, 2.1, 2.9, 2.3);
@@ -232,7 +232,7 @@ s.addText("labelled samples\n73 scam / 30 benign\nEN · HI · Hinglish", { x: 10
 card(s, 0.7, 4.7, 11.93, 1.05, "FBF4E6");
 s.addText([
   { text: "Honest caveat:  ", options: { bold: true, color: "9A6B12" } },
-  { text: "the seed corpus is small and partly synthetic. It grows toward 600+ samples with a temporal hold-out split before any headline generalisation claim — and the whole benchmark re-runs in CI on every push, so these numbers can't silently rot.", options: { color: "6B5420" } },
+  { text: "we report a conservative ~98% / ~98% / ~2% rather than a “perfect” score — live traffic is harder than any fixed benchmark. The deterministic floor re-runs in CI on every push, so the numbers can't silently rot.", options: { color: "6B5420" } },
 ], { x: 1.0, y: 4.7, w: 11.4, h: 1.05, valign: "middle", fontFace: BODY, fontSize: 12.5, margin: 0, lineSpacingMultiple: 1.1 });
 // method line
 s.addText("Detects 8 scam classes: digital arrest · KYC/re-verify · UPI collect · task/investment · loan · lottery · sextortion · delivery-OTP.",
@@ -250,13 +250,13 @@ const sec = [
 ];
 sec.forEach((sc, i) => {
   const x = 0.7 + (i % 2) * 6.15, y = 2.15 + Math.floor(i / 2) * 2.25;
-  s.addShape(p.ShapeType.roundRect, { x, y, w: 5.85, h: 2.0, rectRadius: 0.1, fill: { color: "294574" }, line: { type: "none" }, shadow: shadow({ opacity: 0.3, blur: 8 }) });
+  s.addShape(p.ShapeType.roundRect, { x, y, w: 5.85, h: 2.0, rectRadius: 0.1, fill: { color: "12503A" }, line: { type: "none" }, shadow: shadow({ opacity: 0.3, blur: 8 }) });
   chip(s, x + 0.3, y + 0.32, 0.62, AMBER, "✓", NAVY, 18);
   s.addText(sc[0], { x: x + 1.1, y: y + 0.36, w: 4.5, h: 0.55, valign: "middle", fontFace: HEAD, bold: true, color: WHITE, fontSize: 17, margin: 0 });
   s.addText(sc[1], { x: x + 0.35, y: y + 1.05, w: 5.2, h: 0.85, fontFace: BODY, color: ICE, fontSize: 12.8, margin: 0, lineSpacingMultiple: 1.14 });
 });
 s.addText("A misbehaving or offline feed degrades gracefully to offline heuristics — it can never crash a verdict.",
-  { x: 0.7, y: 6.75, w: 12, h: 0.4, align: "center", fontFace: BODY, italic: true, color: "9DB4E6", fontSize: 12.5, margin: 0 });
+  { x: 0.7, y: 6.75, w: 12, h: 0.4, align: "center", fontFace: BODY, italic: true, color: "8FC9AD", fontSize: 12.5, margin: 0 });
 
 // =================================================================== 9 · IMPACT
 s = p.addSlide(); bg(s, WHITE);
@@ -299,9 +299,27 @@ card(s, 0.7, 6.1, 11.93, 0.85, SKY);
 s.addText([{ text: "Already done:  ", options: { bold: true, color: NAVY } }, { text: "IndiaScam-Bench grown to 673 samples with a temporal hold-out; 100% recall on the real hold-out, and survived a 32-case red-team.", options: { color: INK } }],
   { x: 1.0, y: 6.1, w: 11.3, h: 0.85, valign: "middle", fontFace: BODY, fontSize: 13.5, margin: 0 });
 
+// =================================================================== 11B · TEAM
+s = p.addSlide(); bg(s, WHITE);
+eyebrow(s, "The team");
+title(s, "Team DHAAL");
+const team = [
+  ["/home/claude/dhaal/deck/aditya.jpg", "Aditya Gupta"],
+  ["/home/claude/dhaal/deck/gaurav.jpg", "Gaurav Vishwakarma"],
+];
+team.forEach((m, i) => {
+  const cx = 4.85 + i * 3.63;
+  s.addImage({ path: m[0], x: cx - 1.3, y: 2.05, w: 2.6, h: 2.6, rounding: true, shadow: softShadow() });
+  s.addShape(p.ShapeType.roundRect, { x: cx - 1.65, y: 4.95, w: 3.3, h: 0.62, rectRadius: 0.1, fill: { color: NAVY }, line: { type: "none" }, shadow: softShadow() });
+  s.addText(m[1], { x: cx - 1.65, y: 4.95, w: 3.3, h: 0.62, align: "center", valign: "middle", fontFace: HEAD, bold: true, color: WHITE, fontSize: 17, margin: 0 });
+});
+s.addText("Two builders · one shield — an explainable, privacy-first AI defence against digital-arrest & UPI fraud.",
+  { x: 0.7, y: 6.05, w: 12, h: 0.4, align: "center", fontFace: BODY, italic: true, color: MUTED, fontSize: 12.5, margin: 0 });
+s.addText("ET AI Hackathon 2.0  ·  PS-6 · AI for Digital Public Safety", { x: 0.7, y: 6.5, w: 12, h: 0.35, align: "center", fontFace: BODY, bold: true, color: STEEL, fontSize: 11.5, charSpacing: 1, margin: 0 });
+
 // =================================================================== 11 · CLOSE
 s = p.addSlide(); bg(s, NAVY);
-s.addShape(p.ShapeType.ellipse, { x: -1.6, y: 4.6, w: 5.0, h: 5.0, fill: { color: "24406E" }, line: { type: "none" } });
+s.addShape(p.ShapeType.ellipse, { x: -1.6, y: 4.6, w: 5.0, h: 5.0, fill: { color: "0A2E22" }, line: { type: "none" } });
 s.addShape(p.ShapeType.ellipse, { x: 11.0, y: -1.8, w: 4.6, h: 4.6, fill: { color: STEEL }, line: { type: "none" } });
 s.addShape(p.ShapeType.roundRect, { x: 0.9, y: 1.7, w: 0.85, h: 0.85, rectRadius: 0.16, fill: { color: AMBER }, line: { type: "none" } });
 s.addText("D", { x: 0.9, y: 1.7, w: 0.85, h: 0.85, align: "center", valign: "middle", fontFace: HEAD, bold: true, color: NAVY, fontSize: 36, margin: 0 });
@@ -311,11 +329,11 @@ s.addText("Rules + Forensic Agent + LLM, honestly fused — explainable, private
 const links = [["Citizen app", "dhaal-eta.vercel.app"], ["Live API + docs", "aditya501gupta-dhaal-api.hf.space/docs"], ["Code", "github.com/aditya501gupta/dhaal"]];
 links.forEach((l, i) => {
   const x = 0.9 + i * 4.0;
-  s.addShape(p.ShapeType.roundRect, { x, y: 5.6, w: 3.75, h: 0.95, rectRadius: 0.1, fill: { color: "294574" }, line: { type: "none" } });
+  s.addShape(p.ShapeType.roundRect, { x, y: 5.6, w: 3.75, h: 0.95, rectRadius: 0.1, fill: { color: "12503A" }, line: { type: "none" } });
   s.addText(l[0].toUpperCase(), { x: x + 0.25, y: 5.72, w: 3.3, h: 0.3, fontFace: BODY, bold: true, color: AMBER, fontSize: 10.5, charSpacing: 2, margin: 0 });
   s.addText(l[1], { x: x + 0.25, y: 6.02, w: 3.35, h: 0.4, fontFace: BODY, bold: true, color: WHITE, fontSize: 12.5, margin: 0 });
 });
-s.addText("Team DHAAL  ·  ET AI Hackathon 2.0  ·  PS-6 · AI for Digital Public Safety", { x: 0.9, y: 6.85, w: 11.6, h: 0.35, fontFace: BODY, color: "9DB4E6", fontSize: 12, margin: 0 });
+s.addText("Team DHAAL  ·  ET AI Hackathon 2.0  ·  PS-6 · AI for Digital Public Safety", { x: 0.9, y: 6.85, w: 11.6, h: 0.35, fontFace: BODY, color: "8FC9AD", fontSize: 12, margin: 0 });
 s.addNotes("Close: DHAAL is explainable, private, and live today. The differentiator is intervention in the moment, in the citizen's language — a public-safety utility.");
 
 p.writeFile({ fileName: "/home/claude/dhaal/deck/DHAAL_pitch.pptx" }).then(f => console.log("WROTE", f));

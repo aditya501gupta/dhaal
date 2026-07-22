@@ -58,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             try{ t=t.replace(/[\\p{So}\\p{Sk}\\uFE0F]/gu,' '); }catch(e){}
             return t.replace(/\\s+/g,' ').trim()||null;
           }
+          function pushGuardian(){
+            try{
+              var g=JSON.parse(localStorage.getItem('dhaal_guardian')||'null');
+              if(g&&g.phone&&window.DhaalNative&&DhaalNative.setGuardian) DhaalNative.setGuardian(g.name||'', String(g.phone));
+            }catch(e){}
+          }
+          pushGuardian(); setInterval(pushGuardian, 4000);
           var b=document.createElement('button');
           b.textContent=String.fromCodePoint(0x1F50A);
           b.setAttribute('aria-label','Read result aloud');
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 var cls=card.className||'';
                 if((cls.indexOf('SCAM')>=0||cls.indexOf('SUSPICIOUS')>=0)&&getComputedStyle(card).display!=='none'){
                   var t=grab();
-                  if(t&&t!==last){ last=t; if(window.DhaalNative){ DhaalNative.speak(t); var vd=cls.indexOf('SCAM')>=0?'SCAM':'SUSPICIOUS'; if(DhaalNative.alertGuardian)DhaalNative.alertGuardian(vd,t); } }
+                  if(t&&t!==last){ last=t; if(window.DhaalNative){ DhaalNative.speak(t); var vd=cls.indexOf('SCAM')>=0?'SCAM':'SUSPICIOUS'; pushGuardian(); if(DhaalNative.alertGuardian)DhaalNative.alertGuardian(vd,t); } }
                 }
               }).observe(card,{attributes:true,childList:true,subtree:true});
             }
